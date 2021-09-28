@@ -1,0 +1,157 @@
+.box {
+  width: 1200px;
+  display: flex;
+  margin: 20px auto;
+}
+div {
+  box-sizing: border-box;
+}
+.left {
+  width: 240px;
+  height: 40px;
+  padding: 10px;
+}
+.filter-header {
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+}
+.filter-header-title {
+  height: 40px;
+  padding: 10px;
+}
+.selects {
+  line-height: 40px;
+}
+.goodsList {
+  width: 725px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.goods-item {
+  width: 180px;
+  margin-bottom: 20px;
+}
+.goods-item div {
+  text-align: center;
+}
+.goods-list-tite {
+  width: 180px;
+  text-overflow: ellipsis; /*让截断的文字显示为点点。还有一个值是clip意截断不显示点点*/
+  white-space: nowrap; /*让文字不换行*/
+  overflow: hidden; /*超出要隐藏*/
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.goods-list-img {
+  max-width: 180px;
+  height: 180px;
+}
+.good-list-desc {
+  font-size: 12px;
+  font-weight: 600;
+}
+.good-list-price {
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.carts {
+  padding-left: 20px;
+  cursor: pointer;
+  width: 380px;
+  line-height: 40px;
+  margin-bottom: 22px;
+}
+.right {
+  width: 380px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 购物车的每一项 */
+.shop-cart-item-box {
+  height: 540px;
+  overflow-y: auto;
+}
+.clearCarBtn {
+  display: inline-flex;
+  justify-content: space-around;
+}
+.shop-cart-item {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.cart-img {
+  max-width: 120px;
+  height: 120px;
+}
+.goods-tite,
+.goods-sizes,
+.goods-privce {
+  margin-bottom: 5px;
+  width: 126px;
+}
+.goods-tite {
+  text-overflow: ellipsis; /*让截断的文字显示为点点。还有一个值是clip意截断不显示点点*/
+  white-space: nowrap; /*让文字不换行*/
+  overflow: hidden; /*超出要隐藏*/
+}
+.privace {
+  margin-right: 10px;
+}
+.del-button {
+  line-height: 120px;
+  /* padding: 20; */
+}
+.product-number {
+  color: #0084ff;
+}
+/* 合计 */
+.total {
+  border: 1px solid #e6e6e6;
+  height: 100px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.total div {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal {
+  /*水平滚动条的样式*/
+  width: 4px;
+  background-color: #cccccc;
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff; /*滚动条的背景颜色*/
+  -webkit-border-radius: 0; /*滚动条的圆角宽度*/
+}
+::-webkit-scrollbar {
+  width: 10px; /*滚动条的宽度*/
+  height: 8px; /*滚动条的高度*/
+}
+::-webkit-scrollbar-thumb:vertical {
+  /*垂直滚动条的样式*/
+  height: 50px;
+  background-color: #999;
+  -webkit-border-radius: 4px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover {
+  /*滚动条的hover样式*/
+  height: 50px;
+  background-color: #9f9f9f;
+  -webkit-border-radius: 4px;
+}
