@@ -75,7 +75,7 @@ const ShoppingCart = () => {
       onOk() {
         let newCarData = cloneDeep(carData);
         newCarData = newCarData.filter((item) => item.id !== id);
-        dispatch({ type: "cart/addCar", action: { newCarData } });
+        dispatch({ type: "cart/deleteCar", action: { newCarData } });
       },
       onCancel() {},
     });
@@ -90,10 +90,10 @@ const ShoppingCart = () => {
   };
   //清空购物车
   const clearCar = () => {
-    console.log(1);
     let newCarData = cloneDeep(carData);
     newCarData = [];
-    dispatch({ type: "cart/addCar", action: { newCarData } });
+    dispatch({ type: "cart/clearCar", action: { newCarData } });
+    message.success("Can't afford it, Turtle");
   };
   // 加入购物车
   const addShopingCar = (id) => {
@@ -128,18 +128,20 @@ const ShoppingCart = () => {
   // 结算
   const settlement = () => {
     confirm({
-      title: "你确定要结算购物车中的商品嘛？",
+      title: "Are you sure you want to settle the bill？",
       icon: <ExclamationCircleOutlined />,
-      content: `合计价格${totalPrice}`,
-      okText: "确定结算",
-      cancelText: "取消",
+      content: `AllPrice：${totalPrice}`,
+      okText: "sure",
+      cancelText: "cancel",
       onOk() {
         localStorage.clear("carData");
         dispatch({ type: "cart/addCar", action: { newCarData: [] } });
         setVisible(false);
-        message.success("购买成功，商品正在路上");
+        message.success("Purchase successful, goods are on their way");
       },
-      onCancel() {},
+      onCancel() {
+        message.success("Forget it, pauper");
+      },
     });
   };
   return (
@@ -232,10 +234,8 @@ const ShoppingCart = () => {
             </div>
           </Badge>
           <Drawer
-            destroyOnClose={true}
             width={530}
-            mask={false}
-            title="Cart"
+            title="shoppingCar"
             placement="right"
             onClose={() => {
               openOrCloseShoppingCar(false);

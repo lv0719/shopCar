@@ -12,6 +12,20 @@ const CartModal = {
         carData: action?.newCarData,
       };
     },
+    clearCar(state, { action }) {
+      localStorage.setItem("carData", JSON.stringify(action?.newCarData));
+      return {
+        ...state,
+        carData: action?.newCarData,
+      };
+    },
+    deleteCar(state, { action }) {
+      localStorage.setItem("carData", JSON.stringify(action?.newCarData));
+      return {
+        ...state,
+        carData: action?.newCarData,
+      };
+    },
   },
   effects: {},
 };
