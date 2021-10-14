@@ -73,9 +73,7 @@ const ShoppingCart = () => {
       okType: "danger",
       cancelText: "取消",
       onOk() {
-        let newCarData = cloneDeep(carData);
-        newCarData = newCarData.filter((item) => item.id !== id);
-        dispatch({ type: "cart/deleteCar", action: { newCarData } });
+        dispatch({ type: "cart/deleteCar", action: { id } });
       },
       onCancel() {},
     });
@@ -90,8 +88,7 @@ const ShoppingCart = () => {
   };
   //清空购物车
   const clearCar = () => {
-    let newCarData = cloneDeep(carData);
-    newCarData = [];
+    let newCarData = [];
     dispatch({ type: "cart/clearCar", action: { newCarData } });
     message.success("Can't afford it, Turtle");
   };
@@ -99,22 +96,9 @@ const ShoppingCart = () => {
   const addShopingCar = (id) => {
     // 深拷贝商品列表和购物车数据
     let newCarData = cloneDeep(carData);
-    let newListDta = cloneDeep(listData);
+    let newListData = cloneDeep(listData);
     // 判断商品在购物车中是否存在，如果存在数量加1
-    let flag = true;
-    newCarData.forEach((item) => {
-      if (item.id === id) {
-        item.number += 1;
-        flag = false;
-      }
-    });
-    if (flag) {
-      let arr = newListDta.filter((item) => {
-        return item?.id === id;
-      });
-      newCarData = [...newCarData, ...arr];
-    }
-    dispatch({ type: "cart/addCar", action: { newCarData } });
+    dispatch({ type: "cart/addCar", action: { newCarData, newListData, id } });
     message.success("加入购物车成功");
   };
   // 计算购物车商品总价格
